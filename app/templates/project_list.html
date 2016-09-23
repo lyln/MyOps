@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+<script></script>
+{% block content %}
+
+    <table class="table" contenteditable="true">
+      <thead>
+        <tr>
+          <th>项目ID</th>
+          <th>项目名称</th>
+          <th>机器名称</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for item in project_list %}
+        <tr>
+          <td>{{ item.project_id }}</td>
+          <td>{{ item.project_name }}</td>
+          <td>{{ item.host_name }}</td>
+          <td> <a href="#" id="online-{{ item.project_id}}">上线</a></td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+
+
+    <dl contenteditable="true">
+      <dt>控制台输出</dt>
+      <dd id="console">
+
+      </dd>
+    </dl>
+
+
+{% endblock %}

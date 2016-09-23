@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <link href="/static/css/bootstrap.css" rel="stylesheet" media="screen">
+    <script src="http://lib.sinaapp.com/js/jquery/2.0.3/jquery-2.0.3.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/deploy_online.js"></script>
+
+    <meta name="viewport" content="width=device-with,initial-scale=1.0">
+    <meta charset="UTF-8">
+      {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>Welcom to microblog </title>
+    {%  endif %}
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+{#               导航头#}
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/index">Home</a>
+            </div>
+
+
+        </div>
+    </nav>
+
+{#            主体部分和侧边栏#}
+    <div class="container-fluid">
+	<div class="row">
+		<div class="span2 col-xs-2">
+			<ul class="nav nav-list">
+				<li class="active">
+					<a href="/">首页</a>
+				</li>
+                <li>
+					<a href="/project_list">代码上线</a>
+				</li>
+				<li>
+					<a href="/get_image_url">图片列表</a>
+				</li>
+				<li>
+					<a href="/upload_file">文件上传</a>
+				</li>
+                <li>
+					<a href="/consolelog">日志显示</a>
+				</li>
+				<li class="nav-header">
+					功能列表
+				</li>
+				<li>
+					<a href="#">资料</a>
+				</li>
+				<li>
+					<a href="#">设置</a>
+				</li>
+				<li class="divider">
+				</li>
+				<li>
+					<a href="#">帮助</a>
+				</li>
+			</ul>
+		</div>
+		<div class="span10 col-xs-10">
+			{% block content %}
+            {% endblock %}
+        </div>
+	</div>
+    </div>
+
+    {%  with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+        {%  for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+
+</body>
+</html>
