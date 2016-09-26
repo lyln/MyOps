@@ -10,13 +10,13 @@ import  logging
 video_path="E:\\video"
 headers = {'Content-Type':'application/json'}
 
-url="http://service.rgbvr.com/showms/rest/user/getAllReviews"
-login_url="http://service.rgbvr.com/showms/rest/sysUser/login"
+url="url"
+login_url="login"
 
 # 登陆验证
 login_data = {
 "loginName":"admin",
-"password":"FfwgIp12LrHyHSvcZ5ONEi6AH2taUqFMAMsJuRsEILpQ1vol12DZuDt188xdky0i4RZ+yhE+TP7p4nBrhGY/vBDUnsrJcDSOjsFO9ITZ1sqIz5aPb9O5oUKF2vJgMW3N0NivB6a8ctD7cMYAlOy4hlxWyW/wzYs0DoaQy/WkCJs="
+"password":"passwd"
 }
 req_login= requests.post(login_url,data=json.dumps(login_data),headers=headers)
 postdata=req_login.json()['data']
